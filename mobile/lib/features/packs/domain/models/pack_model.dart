@@ -1,5 +1,3 @@
-import '../../products/domain/models/product_model.dart';
-
 class PackItem {
   final String productId;
   final String productName;
@@ -36,7 +34,7 @@ class PackModel {
   final String id;
   final String title;
   final String subtitle;
-  final String tag; // e.g. "HOSTEL FAVORITE", "STUDY ESSENTIAL"
+  final String tag;
   final String imageUrl;
   final double price;
   final double originalPrice;

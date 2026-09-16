@@ -1,5 +1,5 @@
-import 'address_model.dart';
-import '../../cart/domain/models/cart_item_model.dart';
+import '../../../addresses/domain/address_model.dart';
+import '../../../cart/domain/models/cart_item_model.dart';
 
 enum OrderStatus {
   ORDER_RECEIVED,
@@ -56,8 +56,8 @@ class OrderModel {
   final double deliveryFee;
   final double discount;
   final double total;
-  final String paymentMethod; // UPI, COD, Razorpay
-  final String paymentStatus; // PENDING, PAID, FAILED
+  final String paymentMethod;
+  final String paymentStatus;
   final OrderStatus status;
   final AddressModel deliveryAddress;
   final String customerNotes;

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../order_provider.dart';
-import '../domain/models/order_model.dart';
+import '../../domain/models/order_model.dart';
 import '../../../cart/presentation/cart_provider.dart';
 import '../../../../core/constants/app_colors.dart';
 

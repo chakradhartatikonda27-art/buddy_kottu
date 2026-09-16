@@ -10,7 +10,7 @@ interface Product {
   price: number;
   mrp: number;
   stock: number;
-  isAvailable: bool;
+  isAvailable: boolean;
 }
 
 const initialCatalog: Product[] = [

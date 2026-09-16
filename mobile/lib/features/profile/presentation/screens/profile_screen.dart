@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import '../../auth/presentation/auth_provider.dart';
+import '../../../auth/presentation/auth_provider.dart';
 import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_strings.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});

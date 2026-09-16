@@ -25,6 +25,7 @@ class BuddyKottuApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       routerConfig: appRouter,
+      builder: (context, child) => child ?? const SizedBox.shrink(),
     );
   }
 }

@@ -80,7 +80,7 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
   });
 
   int _calculateSelectedIndex(BuildContext context) {
-    final String location = GoRouterState.of(context).uri.pathname;
+    final String location = GoRouterState.of(context).uri.path;
     if (location == '/') return 0;
     if (location.startsWith('/categories')) return 1;
     if (location.startsWith('/search')) return 2;
@@ -113,7 +113,9 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final selectedIndex = _calculateSelectedIndex(context);
 
-    return Scaffold(
+    final isWide = MediaQuery.of(context).size.width > 600;
+
+    final scaffoldContent = Scaffold(
       body: Stack(
         children: [
           child,
@@ -156,6 +158,30 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
             label: 'Profile',
           ),
         ],
+      ),
+    );
+
+    if (!isWide) {
+      return scaffoldContent;
+    }
+
+    return Container(
+      color: const Color(0xFF0F172A),
+      child: Center(
+        child: Container(
+          width: 480,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.5),
+                blurRadius: 25,
+                spreadRadius: 5,
+              ),
+            ],
+          ),
+          child: scaffoldContent,
+        ),
       ),
     );
   }

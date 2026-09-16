@@ -1,0 +1,56 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --green: #16A34A;
+  --green-dark: #0B3D24;
+  --white: #FFFFFF;
+  --accent: #F97316;
+  --text: #111827;
+  --muted: #6B7280;
+  --error: #DC2626;
+  --surface: #F6F7F4;
+  --border: #E7E9E4;
+  --radius-card: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #EEF0EC;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Tab button transition */
+.tab-btn {
+  transition: all 0.15s ease;
+}
+
+/* Custom phone frame mockup option for quick previewing */
+.phone-frame {
+  width: 340px;
+  height: 718px;
+  background: #0B0F0C;
+  border-radius: 42px;
+  padding: 12px;
+  box-shadow: 0 24px 60px rgba(11,20,15,.28), 0 2px 8px rgba(11,20,15,.15);
+  position: relative;
+}

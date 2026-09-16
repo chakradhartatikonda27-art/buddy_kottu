@@ -21,6 +21,9 @@ class AppColors {
   static const Color cardBorder = Color(0xFFE7E9E4);
   static const Color background = Color(0xFFEEF0EC);
 
+  static const Color primaryLight = Color(0xFFDCFCE7);
+  static const Color accentLight = Color(0xFFFFEDD5);
+
   // Dark Mode Tokens
   static const Color darkBackground = Color(0xFF0B0F0C);
   static const Color darkSurface = Color(0xFF141C16);

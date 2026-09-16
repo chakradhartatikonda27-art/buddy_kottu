@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import '../../cart/presentation/cart_provider.dart';
-import '../../orders/presentation/order_provider.dart';
-import '../../addresses/domain/address_model.dart';
+import '../../../cart/presentation/cart_provider.dart';
+import '../../../orders/presentation/order_provider.dart';
+import '../../../addresses/domain/address_model.dart';
 import '../../../../core/constants/app_colors.dart';
 
 class CheckoutScreen extends ConsumerStatefulWidget {

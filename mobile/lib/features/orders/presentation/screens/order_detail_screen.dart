@@ -4,7 +4,6 @@ import 'package:lucide_icons/lucide_icons.dart';
 import '../order_provider.dart';
 import '../widgets/order_timeline.dart';
 import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_strings.dart';
 
 class OrderDetailScreen extends ConsumerWidget {
   final String orderId;

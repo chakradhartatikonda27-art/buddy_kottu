@@ -252,7 +252,7 @@ class HomeScreen extends ConsumerWidget {
               Text(eyebrow, style: GoogleFonts.inter(color: Colors.white70, fontSize: 10.5, fontWeight: FontWeight.w600)),
               const SizedBox(height: 2),
               Text(title, style: GoogleFonts.sora(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w800)),
-              Text(sub, style: GoogleFonts.inter(color: Colors.white90, fontSize: 10.5, fontWeight: FontWeight.w500)),
+              Text(sub, style: GoogleFonts.inter(color: Colors.white.withOpacity(0.9), fontSize: 10.5, fontWeight: FontWeight.w500)),
             ],
           ),
           Positioned(

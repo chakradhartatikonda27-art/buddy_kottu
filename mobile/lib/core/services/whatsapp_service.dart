@@ -1,5 +1,4 @@
 import 'package:url_launcher/url_launcher.dart';
-import '../constants/app_strings.dart';
 import '../../features/orders/domain/models/order_model.dart';
 
 class WhatsAppService {
