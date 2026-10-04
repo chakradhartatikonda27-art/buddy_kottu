@@ -128,37 +128,47 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
             ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        onTap: (int idx) => _onItemTapped(idx, context),
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.textMuted,
-        selectedFontSize: 11,
-        unselectedFontSize: 11,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(LucideIcons.home),
-            label: 'Home',
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          border: Border(
+            top: BorderSide(color: Color(0xFFF1F5F9), width: 1.0),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(LucideIcons.grid),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(LucideIcons.package),
-            label: 'Orders',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(LucideIcons.shoppingCart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(LucideIcons.user),
-            label: 'Account',
-          ),
-        ],
+        ),
+        child: BottomNavigationBar(
+          currentIndex: selectedIndex,
+          onTap: (int idx) => _onItemTapped(idx, context),
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          selectedItemColor: AppColors.primary,
+          unselectedItemColor: AppColors.textMuted,
+          selectedFontSize: 11,
+          unselectedFontSize: 11,
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.grid),
+              label: 'Categories',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.package),
+              label: 'Orders',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.shoppingCart),
+              label: 'Cart',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.user),
+              label: 'Account',
+            ),
+          ],
+        ),
       ),
     );
 
@@ -167,17 +177,18 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
     }
 
     return Container(
-      color: const Color(0xFF0F172A),
+      color: const Color(0xFFF8FAFC),
       child: Center(
         child: Container(
           width: 480,
           height: double.infinity,
           decoration: BoxDecoration(
+            color: const Color(0xFFF8FAFC),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.5),
-                blurRadius: 25,
-                spreadRadius: 5,
+                color: Colors.black.withOpacity(0.08),
+                blurRadius: 20,
+                spreadRadius: 2,
               ),
             ],
           ),

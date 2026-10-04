@@ -64,7 +64,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                       borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
                       child: widget.product.imageUrl.isNotEmpty
                           ? Image.network(
-                              widget.product.imageUrl,
+                              _getCorsUrl(widget.product.imageUrl),
                               width: double.infinity,
                               height: double.infinity,
                               fit: BoxFit.cover,
@@ -269,6 +269,12 @@ class _ProductCardState extends ConsumerState<ProductCard> {
         ),
       ),
     );
+  }
+
+  String _getCorsUrl(String rawUrl) {
+    if (rawUrl.isEmpty) return rawUrl;
+    if (rawUrl.contains('images.weserv.nl')) return rawUrl;
+    return 'https://images.weserv.nl/?url=${Uri.encodeComponent(rawUrl)}';
   }
 
   String _getProductEmoji(String categoryId, String name) {
