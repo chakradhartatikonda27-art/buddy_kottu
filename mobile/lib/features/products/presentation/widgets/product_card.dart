@@ -50,9 +50,9 @@ class _ProductCardState extends ConsumerState<ProductCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Image Box & Badges Container (Fixed height 108)
+            // Image Box & Badges Container (Fixed height 100)
             SizedBox(
-              height: 108,
+              height: 100,
               width: double.infinity,
               child: Stack(
                 children: [
@@ -69,14 +69,14 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                               errorBuilder: (context, error, stackTrace) => Center(
                                 child: Text(
                                   _getProductEmoji(widget.product.categoryId, widget.product.name),
-                                  style: const TextStyle(fontSize: 40),
+                                  style: const TextStyle(fontSize: 36),
                                 ),
                               ),
                             )
                           : Center(
                               child: Text(
                                 _getProductEmoji(widget.product.categoryId, widget.product.name),
-                                style: const TextStyle(fontSize: 40),
+                                style: const TextStyle(fontSize: 36),
                               ),
                             ),
                     ),
@@ -85,19 +85,19 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                   // Discount Badge (Top-Left)
                   if (widget.product.hasDiscount)
                     Positioned(
-                      top: 8,
-                      left: 8,
+                      top: 6,
+                      left: 6,
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2.5),
                         decoration: BoxDecoration(
                           color: const Color(0xFFFF5722),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
                           '${widget.product.discountPercentage.toInt()}% OFF',
                           style: GoogleFonts.inter(
                             color: Colors.white,
-                            fontSize: 9.5,
+                            fontSize: 9,
                             fontWeight: FontWeight.w800,
                           ),
                         ),
@@ -106,8 +106,8 @@ class _ProductCardState extends ConsumerState<ProductCard> {
 
                   // Favorite Heart Icon Button (Top-Right)
                   Positioned(
-                    top: 8,
-                    right: 8,
+                    top: 6,
+                    right: 6,
                     child: InkWell(
                       onTap: () {
                         setState(() {
@@ -116,20 +116,20 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                       },
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
-                        padding: const EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(4.5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.08),
-                              blurRadius: 5,
+                              blurRadius: 4,
                             ),
                           ],
                         ),
                         child: Icon(
                           isFavorite ? Icons.favorite : Icons.favorite_border,
-                          size: 15,
+                          size: 14,
                           color: isFavorite ? const Color(0xFFFF5722) : const Color(0xFF94A3B8),
                         ),
                       ),
@@ -141,31 +141,37 @@ class _ProductCardState extends ConsumerState<ProductCard> {
 
             // Product Details Area
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.fromLTRB(9, 8, 9, 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    widget.product.name,
-                    style: GoogleFonts.inter(
-                      color: const Color(0xFF0F172A),
-                      fontSize: 12.5,
-                      fontWeight: FontWeight.w700,
-                      height: 1.2,
+                  // Fixed 32px height container for Product Name (1 or 2 lines)
+                  SizedBox(
+                    height: 32,
+                    child: Text(
+                      widget.product.name,
+                      style: GoogleFonts.inter(
+                        color: const Color(0xFF0F172A),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        height: 1.25,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 2),
                   Text(
                     widget.product.brand,
                     style: GoogleFonts.inter(
                       color: const Color(0xFF94A3B8),
-                      fontSize: 10.5,
+                      fontSize: 10,
                       fontWeight: FontWeight.w500,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 6),
 
                   // Price Line
                   Row(
@@ -174,17 +180,17 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                         '₹${widget.product.price.toStringAsFixed(0)}',
                         style: GoogleFonts.inter(
                           color: const Color(0xFF0F172A),
-                          fontSize: 14,
+                          fontSize: 13.5,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
                       if (widget.product.hasDiscount) ...[
-                        const SizedBox(width: 5),
+                        const SizedBox(width: 4),
                         Text(
                           '₹${widget.product.mrp.toStringAsFixed(0)}',
                           style: GoogleFonts.inter(
                             color: const Color(0xFF94A3B8),
-                            fontSize: 11,
+                            fontSize: 10.5,
                             decoration: TextDecoration.lineThrough,
                           ),
                         ),
@@ -202,29 +208,29 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                       style: OutlinedButton.styleFrom(
                         foregroundColor: const Color(0xFFFF5722),
                         side: const BorderSide(color: Color(0xFFFF5722), width: 1.5),
-                        minimumSize: const Size(double.infinity, 34),
+                        minimumSize: const Size(double.infinity, 32),
                         padding: EdgeInsets.zero,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.add, size: 15),
-                          const SizedBox(width: 3),
+                          const Icon(Icons.add, size: 14),
+                          const SizedBox(width: 2),
                           Text(
                             'ADD',
-                            style: GoogleFonts.inter(fontSize: 11.5, fontWeight: FontWeight.w800, letterSpacing: 0.5),
+                            style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w800, letterSpacing: 0.5),
                           ),
                         ],
                       ),
                     )
                   else
                     Container(
-                      height: 34,
+                      height: 32,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                         color: const Color(0xFFFF5722),
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(16),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -233,17 +239,17 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                             onTap: () {
                               ref.read(cartProvider.notifier).updateQuantity(widget.product.id, quantity - 1);
                             },
-                            child: const Icon(Icons.remove, color: Colors.white, size: 16),
+                            child: const Icon(Icons.remove, color: Colors.white, size: 15),
                           ),
                           Text(
                             '$quantity',
-                            style: GoogleFonts.inter(color: Colors.white, fontSize: 12.5, fontWeight: FontWeight.w800),
+                            style: GoogleFonts.inter(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w800),
                           ),
                           GestureDetector(
                             onTap: () {
                               ref.read(cartProvider.notifier).updateQuantity(widget.product.id, quantity + 1);
                             },
-                            child: const Icon(Icons.add, color: Colors.white, size: 16),
+                            child: const Icon(Icons.add, color: Colors.white, size: 15),
                           ),
                         ],
                       ),
