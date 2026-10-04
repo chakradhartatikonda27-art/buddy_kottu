@@ -192,15 +192,15 @@ class HomeScreen extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
                   children: [
-                    _buildCategoryAvatar('🍿', 'Snacks', const Color(0xFFFEF3C7), () => context.go('/search?q=snacks')),
-                    _buildCategoryAvatar('🥤', 'Drinks', const Color(0xFFE0F2FE), () => context.go('/search?q=drinks')),
-                    _buildCategoryAvatar('🍜', 'Instant Food', const Color(0xFFFFE4E6), () => context.go('/search?q=instant')),
-                    _buildCategoryAvatar('🍪', 'Biscuits', const Color(0xFFFEF9C3), () => context.go('/search?q=biscuits')),
-                    _buildCategoryAvatar('🍫', 'Chocolates', const Color(0xFFF3E8FF), () => context.go('/search?q=chocolates')),
-                    _buildCategoryAvatar('🥛', 'Dairy', const Color(0xFFF0FDF4), () => context.go('/search?q=dairy')),
-                    _buildCategoryAvatar('🍦', 'Ice Cream', const Color(0xFFFCE7F3), () => context.go('/search?q=ice cream')),
-                    _buildCategoryAvatar('✏️', 'Stationery', const Color(0xFFE0E7FF), () => context.go('/search?q=stationery')),
-                    _buildCategoryAvatar('🛒', 'More', const Color(0xFFF1F5F9), () => context.go('/categories')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=200&q=80', 'Snacks', const Color(0xFFFEF3C7), () => context.go('/search?q=snacks')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200&q=80', 'Drinks', const Color(0xFFE0F2FE), () => context.go('/search?q=drinks')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=200&q=80', 'Instant Food', const Color(0xFFFFE4E6), () => context.go('/search?q=instant')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=200&q=80', 'Biscuits', const Color(0xFFFEF9C3), () => context.go('/search?q=biscuits')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=200&q=80', 'Chocolates', const Color(0xFFF3E8FF), () => context.go('/search?q=chocolates')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1528750997573-59b89d66f4f7?w=200&q=80', 'Dairy', const Color(0xFFF0FDF4), () => context.go('/search?q=dairy')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&q=80', 'Ice Cream', const Color(0xFFFCE7F3), () => context.go('/search?q=ice cream')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1585336261026-875a60a1c96b?w=200&q=80', 'Stationery', const Color(0xFFE0E7FF), () => context.go('/search?q=stationery')),
+                    _buildCategoryAvatar('https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=200&q=80', 'More', const Color(0xFFF1F5F9), () => context.go('/categories')),
                   ],
                 ),
               ),
@@ -588,23 +588,49 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildCategoryAvatar(String emoji, String label, Color bgColor, VoidCallback onTap) {
+  Widget _buildCategoryAvatar(String imageOrEmoji, String label, Color bgColor, VoidCallback onTap) {
+    final isUrl = imageOrEmoji.startsWith('http');
+    final corsUrl = isUrl ? 'https://images.weserv.nl/?url=${Uri.encodeComponent(imageOrEmoji)}' : '';
+
     return Padding(
       padding: const EdgeInsets.only(right: 12),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         child: Column(
           children: [
             Container(
-              width: 58,
-              height: 58,
+              width: 62,
+              height: 62,
               decoration: BoxDecoration(
                 color: bgColor,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(18),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.04),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
-              child: Center(
-                child: Text(emoji, style: const TextStyle(fontSize: 26)),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(18),
+                child: isUrl
+                    ? Image.network(
+                        corsUrl,
+                        width: 62,
+                        height: 62,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          color: bgColor,
+                          child: Center(
+                            child: Text(label.isNotEmpty ? label[0] : '🛒', style: const TextStyle(fontSize: 26)),
+                          ),
+                        ),
+                      )
+                    : Center(
+                        child: Text(imageOrEmoji, style: const TextStyle(fontSize: 26)),
+                      ),
               ),
             ),
             const SizedBox(height: 6),
@@ -612,8 +638,8 @@ class HomeScreen extends ConsumerWidget {
               label,
               style: GoogleFonts.inter(
                 fontSize: 11,
-                fontWeight: FontWeight.w600,
-                color: const Color(0xFF334155),
+                fontWeight: FontWeight.w700,
+                color: const Color(0xFF0F172A),
               ),
             ),
           ],
