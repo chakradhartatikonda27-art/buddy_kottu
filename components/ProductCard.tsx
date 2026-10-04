@@ -20,12 +20,19 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Product Image Box */}
       <div
         onClick={() => setActiveProductModal(product)}
-        className="h-24 sm:h-28 flex items-center justify-center text-3xl sm:text-4xl cursor-pointer relative select-none group-hover:scale-105 transition-transform"
-        style={{ backgroundColor: product.bgHex }}
+        className="h-28 sm:h-32 flex items-center justify-center cursor-pointer relative select-none group-hover:scale-105 transition-transform overflow-hidden bg-white"
       >
-        {product.emoji}
+        {product.imageUrl ? (
+          <img
+            src={product.imageUrl}
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <span className="text-3xl sm:text-4xl">{product.emoji}</span>
+        )}
         {product.discountBadge && (
-          <span className="absolute top-2 left-2 bg-brand-accent text-white font-bold text-[9.5px] px-1.5 py-0.5 rounded shadow-sm">
+          <span className="absolute top-2 left-2 bg-[#FF5722] text-white font-bold text-[9.5px] px-1.5 py-0.5 rounded shadow-sm z-10">
             {product.discountBadge}
           </span>
         )}

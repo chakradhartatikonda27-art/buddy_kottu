@@ -11,6 +11,7 @@ export interface Product {
   stock: number;
   description: string;
   tags: string[];
+  imageUrl?: string;
 }
 
 export interface SmartPack {
@@ -73,8 +74,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '🍜',
     bgHex: '#FDF1E6',
     stock: 24,
-    description: "India's favourite instant noodles. Ready in 2 minutes with the classic masala tastemaker. Stocked fresh every week at Sri Siva General Stores.",
+    description: "India's favourite instant noodles. Ready in 2 minutes with the classic masala tastemaker.",
     tags: ['maggi', 'noodle', 'instant', 'snack', 'hostel'],
+    imageUrl: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=500&q=80',
   },
   {
     id: 'prod-2',
@@ -85,8 +87,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '🥤',
     bgHex: '#E9F5EE',
     stock: 18,
-    description: 'Strong, fizzy cola drink with a rich taste. Served ice cold directly from our store refrigerator.',
+    description: 'Strong, fizzy cola drink with a rich taste. Served ice cold.',
     tags: ['thums up', 'coca cola', 'cold drink', 'soda', 'beverage'],
+    imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&q=80',
   },
   {
     id: 'prod-3',
@@ -99,8 +102,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '🧼',
     bgHex: '#EFF0EA',
     stock: 15,
-    description: 'Gentle cleansing bar with 1/4 moisturizing cream for soft, smooth skin.',
+    description: 'Gentle cleansing bar with 1/4 moisturizing cream.',
     tags: ['soap', 'dove', 'bath', 'personal care', 'hostel'],
+    imageUrl: 'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=500&q=80',
   },
   {
     id: 'prod-4',
@@ -111,8 +115,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '🍫',
     bgHex: '#FDEEE9',
     stock: 30,
-    description: 'Smooth and creamy milk chocolate bar made with fresh milk goodness.',
+    description: 'Smooth and creamy milk chocolate bar.',
     tags: ['chocolate', 'cadbury', 'dairy milk', 'sweet', 'snack'],
+    imageUrl: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500&q=80',
   },
   {
     id: 'prod-5',
@@ -123,8 +128,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '🍋',
     bgHex: '#EAF7EE',
     stock: 20,
-    description: 'Crisp, refreshing lemon-lime flavored carbonated beverage.',
+    description: 'Crisp, refreshing lemon-lime carbonated beverage.',
     tags: ['sprite', 'cold drink', 'lemon', 'beverage'],
+    imageUrl: 'https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=500&q=80',
   },
   {
     id: 'prod-6',
@@ -137,6 +143,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 16,
     description: 'Bright and bubbly orange fruit flavored sparkling drink.',
     tags: ['fanta', 'orange', 'cold drink', 'beverage'],
+    imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&q=80',
   },
   {
     id: 'prod-7',
@@ -149,6 +156,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 22,
     description: 'Bold, crisp cola taste that refreshes like nothing else.',
     tags: ['pepsi', 'cold drink', 'soda', 'beverage'],
+    imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&q=80',
   },
   {
     id: 'prod-8',
@@ -161,6 +169,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 25,
     description: 'Crispy potato chips seasoned with fine quality salt.',
     tags: ['lays', 'chips', 'potato', 'salted', 'snack'],
+    imageUrl: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=500&q=80',
   },
   {
     id: 'prod-9',
@@ -173,8 +182,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '🥚',
     bgHex: '#FFFBF0',
     stock: 12,
-    description: 'Fresh farm-raised protein-rich brown eggs, safe transport pack.',
+    description: 'Fresh farm-raised protein-rich brown eggs.',
     tags: ['eggs', 'egg', 'protein', 'breakfast', 'hospital'],
+    imageUrl: 'https://images.unsplash.com/photo-1528750997573-59b89d66f4f7?w=500&q=80',
   },
   {
     id: 'prod-10',
@@ -185,12 +195,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '💧',
     bgHex: '#EAF6FF',
     stock: 50,
-    description: 'Pure, safe drinking water enriched with essential minerals.',
+    description: 'Pure, safe drinking water enriched with minerals.',
     tags: ['water', 'bisleri', 'bottle', 'drink', 'hospital'],
+    imageUrl: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=500&q=80',
   },
   {
     id: 'prod-11',
-    name: 'Nescafe Classic Instant Coffee 50g',
+    name: 'Nescafe Classic Coffee 50g',
     brand: 'Nescafe',
     category: 'Drinks',
     price: 165,
@@ -199,8 +210,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '☕',
     bgHex: '#F6EFEA',
     stock: 14,
-    description: '100% pure instant coffee powder crafted with premium roasted beans.',
+    description: '100% pure instant coffee powder crafted with roasted beans.',
     tags: ['coffee', 'nescafe', 'study', 'drink'],
+    imageUrl: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=80',
   },
   {
     id: 'prod-12',
@@ -211,8 +223,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     emoji: '🍪',
     bgHex: '#FFF5E6',
     stock: 28,
-    description: 'Crunchy butter cookies packed with rich taste and appetizing aroma.',
+    description: 'Crunchy butter cookies packed with rich taste.',
     tags: ['biscuits', 'good day', 'cookies', 'snack'],
+    imageUrl: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80',
   },
 ];
 
