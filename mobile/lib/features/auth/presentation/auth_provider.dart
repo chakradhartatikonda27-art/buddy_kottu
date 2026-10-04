@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class UserProfile {
   final String uid;
   final String name;
+  final String email;
   final String phone;
   final String selectedAddressTitle;
   final bool isAuthenticated;
@@ -10,6 +11,7 @@ class UserProfile {
   const UserProfile({
     required this.uid,
     required this.name,
+    this.email = 'chakradhartatikonda27@gmail.com',
     required this.phone,
     required this.selectedAddressTitle,
     this.isAuthenticated = false,
@@ -18,6 +20,7 @@ class UserProfile {
   UserProfile copyWith({
     String? uid,
     String? name,
+    String? email,
     String? phone,
     String? selectedAddressTitle,
     bool? isAuthenticated,
@@ -25,6 +28,7 @@ class UserProfile {
     return UserProfile(
       uid: uid ?? this.uid,
       name: name ?? this.name,
+      email: email ?? this.email,
       phone: phone ?? this.phone,
       selectedAddressTitle: selectedAddressTitle ?? this.selectedAddressTitle,
       isAuthenticated: isAuthenticated ?? this.isAuthenticated,
@@ -35,8 +39,9 @@ class UserProfile {
 class AuthNotifier extends StateNotifier<UserProfile> {
   AuthNotifier()
       : super(const UserProfile(
-          uid: 'usr_rahul_99',
-          name: 'Rahul V',
+          uid: 'usr_chakradhar_99',
+          name: 'chakradhar tatikonda',
+          email: 'chakradhartatikonda27@gmail.com',
           phone: '+91 98765 43210',
           selectedAddressTitle: 'Hostel Block B, Room 304',
           isAuthenticated: true,
