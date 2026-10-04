@@ -1,13 +1,13 @@
 class AppStrings {
   AppStrings._();
 
-  static const String appName = 'Buddy Kottu';
-  static const String storeName = 'Sri Siva General Stores';
-  static const String tagline = 'Everything Nearby';
+  static const String appName = 'BUDDY MART';
+  static const String storeName = 'Sri Siva Store';
+  static const String tagline = 'Delivering near you';
   static const String businessHours = '6:00 AM – 10:00 PM';
-  static const String defaultDeliveryArea = 'GSL Hospital Area, Hostels & Nearby';
+  static const String defaultDeliveryArea = 'GSL Hospital Road & Hostel Block B';
   
-  static const String searchPlaceholder = 'Search products, brands, snacks, drinks...';
+  static const String searchPlaceholder = 'Search snacks, drinks, essentials...';
   static const String hostelEssentials = 'Hostel Essentials';
   static const String hospitalEssentials = 'Hospital Essentials';
   static const String drinks = 'Drinks & Water';

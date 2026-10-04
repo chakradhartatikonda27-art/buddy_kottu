@@ -12,10 +12,10 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      primaryColor: AppColors.greenDark,
-      scaffoldBackgroundColor: AppColors.surface,
+      primaryColor: AppColors.primary,
+      scaffoldBackgroundColor: AppColors.background,
       colorScheme: const ColorScheme.light(
-        primary: AppColors.greenDark,
+        primary: AppColors.primary,
         secondary: AppColors.accent,
         surface: AppColors.white,
         error: AppColors.error,
@@ -66,7 +66,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.greenDark,
+          backgroundColor: AppColors.primary,
           foregroundColor: AppColors.white,
           minimumSize: const Size(double.infinity, 48),
           shape: RoundedRectangleBorder(

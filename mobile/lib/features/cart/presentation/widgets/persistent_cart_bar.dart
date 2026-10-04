@@ -20,7 +20,7 @@ class PersistentCartBar extends ConsumerWidget {
         child: Material(
           elevation: 8,
           borderRadius: BorderRadius.circular(14),
-          color: AppColors.greenDark,
+          color: AppColors.primary,
           child: InkWell(
             onTap: () => context.push('/cart'),
             borderRadius: BorderRadius.circular(14),

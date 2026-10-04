@@ -34,26 +34,25 @@ final appRouter = GoRouter(
           builder: (context, state) => const CategoriesScreen(),
         ),
         GoRoute(
+          path: '/orders',
+          builder: (context, state) => const OrdersScreen(),
+        ),
+        GoRoute(
+          path: '/cart',
+          builder: (context, state) => const CartScreen(),
+        ),
+        GoRoute(
+          path: '/profile',
+          builder: (context, state) => const ProfileScreen(),
+        ),
+        GoRoute(
           path: '/search',
           builder: (context, state) {
             final q = state.uri.queryParameters['q'];
             return SearchScreen(initialQuery: q);
           },
         ),
-        GoRoute(
-          path: '/orders',
-          builder: (context, state) => const OrdersScreen(),
-        ),
-        GoRoute(
-          path: '/profile',
-          builder: (context, state) => const ProfileScreen(),
-        ),
       ],
-    ),
-    GoRoute(
-      path: '/cart',
-      parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => const CartScreen(),
     ),
     GoRoute(
       path: '/checkout',
@@ -83,8 +82,8 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
     final String location = GoRouterState.of(context).uri.path;
     if (location == '/') return 0;
     if (location.startsWith('/categories')) return 1;
-    if (location.startsWith('/search')) return 2;
-    if (location.startsWith('/orders')) return 3;
+    if (location.startsWith('/orders')) return 2;
+    if (location.startsWith('/cart')) return 3;
     if (location.startsWith('/profile')) return 4;
     return 0;
   }
@@ -98,10 +97,10 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
         context.go('/categories');
         break;
       case 2:
-        context.go('/search');
+        context.go('/orders');
         break;
       case 3:
-        context.go('/orders');
+        context.go('/cart');
         break;
       case 4:
         context.go('/profile');
@@ -112,6 +111,7 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final selectedIndex = _calculateSelectedIndex(context);
+    final String location = GoRouterState.of(context).uri.path;
 
     final isWide = MediaQuery.of(context).size.width > 600;
 
@@ -119,12 +119,13 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
       body: Stack(
         children: [
           child,
-          const Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: PersistentCartBar(),
-          ),
+          if (location != '/cart')
+            const Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: PersistentCartBar(),
+            ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -146,16 +147,16 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
             label: 'Categories',
           ),
           BottomNavigationBarItem(
-            icon: Icon(LucideIcons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(LucideIcons.package),
             label: 'Orders',
           ),
           BottomNavigationBarItem(
+            icon: Icon(LucideIcons.shoppingCart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(LucideIcons.user),
-            label: 'Profile',
+            label: 'Account',
           ),
         ],
       ),
