@@ -58,11 +58,29 @@ class _ProductCardState extends ConsumerState<ProductCard> {
               ),
               child: Stack(
                 children: [
-                  // Product Emoji / Graphic Center
-                  Center(
-                    child: Text(
-                      _getProductEmoji(widget.product.categoryId, widget.product.name),
-                      style: const TextStyle(fontSize: 44),
+                  // Product Image Center
+                  Positioned.fill(
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
+                      child: widget.product.imageUrl.isNotEmpty
+                          ? Image.network(
+                              widget.product.imageUrl,
+                              width: double.infinity,
+                              height: double.infinity,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) => Center(
+                                child: Text(
+                                  _getProductEmoji(widget.product.categoryId, widget.product.name),
+                                  style: const TextStyle(fontSize: 44),
+                                ),
+                              ),
+                            )
+                          : Center(
+                              child: Text(
+                                _getProductEmoji(widget.product.categoryId, widget.product.name),
+                                style: const TextStyle(fontSize: 44),
+                              ),
+                            ),
                     ),
                   ),
 
