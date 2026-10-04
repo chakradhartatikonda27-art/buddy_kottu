@@ -303,7 +303,7 @@ class HomeScreen extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: crossCount,
-                      childAspectRatio: isWide ? 0.76 : 0.68,
+                      childAspectRatio: isWide ? 0.76 : 0.57,
                       crossAxisSpacing: 14,
                       mainAxisSpacing: 14,
                     ),

@@ -30,6 +30,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
     final quantity = cartItemIndex >= 0 ? cartState.items[cartItemIndex].quantity : 0;
 
     return Container(
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
@@ -50,7 +51,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
           children: [
             // Image Box & Badges Container
             Container(
-              height: 125,
+              height: 115,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: const Color(0xFFFFF7ED).withOpacity(0.6),
